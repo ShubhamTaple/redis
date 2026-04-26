@@ -8,7 +8,6 @@
         "container": "CLUSTER",
         "function": "clusterCommand",
         "command_flags": [
-            "LOADING",
             "STALE"
         ],
         "command_tips": [
