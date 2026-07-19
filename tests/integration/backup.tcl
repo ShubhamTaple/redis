@@ -130,7 +130,7 @@ start_server {overrides {appendonly no auto-aof-rewrite-percentage 0}} {
         set manifest [file join $bdir appendonly.aof.manifest]
         start_server [list overrides [list dir $local_dir appendonly yes preload-file "aof:$manifest"] keep_persistence true] {
             assert_equal 3 [r dbsize]
-            assert_equal 1 [s aof_rewrites]
+            assert_equal 0 [s aof_rewrites]
             waitForBgrewriteaof r
             assert_equal ok [s aof_last_bgrewrite_status]
             # we don't append the old incr aof, and it is deleted after AOFRW
