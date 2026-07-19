@@ -32,6 +32,11 @@ int rewriteAppendOnlyFile(char *filename);
 aofManifest *aofLoadManifestFromFile(sds am_filepath);
 void aofManifestFreeAndUpdate(aofManifest *am);
 void aof_background_fsync_and_close(int fd);
+static void removeFilesInDir(char *dirname);
+static int openNewIncrAofForAppend(void);
+int ingestPreloadRdbIntoAof(void);
+int ingestPreloadSingleAofIntoAof(void);
+int ingestPreloadManifestIntoAof(void);
 
 /* When we call 'startAppendOnly', we will create a temp INCR AOF, and rename
  * it to the real INCR AOF name when the AOFRW is done, so if want to know the
