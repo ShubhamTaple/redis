@@ -51,6 +51,7 @@
 #include "util.h"
 #include "sha256.h"
 #include "config.h"
+#include "zmalloc.h"
 
 #define UNUSED(x) ((void)(x))
 
